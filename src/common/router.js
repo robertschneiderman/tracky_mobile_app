@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import SignIn from './auth/components/SingIn';
+import SigninScene from '../pages/auth/components/SigninScene';
 
 const RouterComponent = () => (
     <Router>
-        <Scene key="login" component={SignIn} title="Login" />
+        <Scene key="signin" component={SigninScene} title="Sign In" />
     </Router>
 );
 
