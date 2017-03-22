@@ -1,0 +1,3 @@
+rootProject.name = 'tracky_mobile_app'
+
+include ':app'
