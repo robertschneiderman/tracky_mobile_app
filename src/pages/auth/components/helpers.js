@@ -1,14 +1,16 @@
 import React from 'react';
+import { StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity, TextInput, Button } from 'react-native';
+
+import Input from '../../../common/components/Input';
 
 export const renderField = ({ input, label, type, meta: { touched, error, warning } }) => {
     return (
-        <div className="c-fieldset-auth input input--hoshi">
-            <label className="label-auth input__label input__label--hoshi input__label--hoshi-color-1">{label}</label>
-            <div>
-                <input className="input-auth" {...input} placeholder={label} type={type}/>
-            {touched && ((error && <span className="text-auth-error">{error}</span>) || (warning && <span>{warning}</span>))}
-            </div>
-        </div>        
+        <View>
+            <View>
+                <Input value="hey" />
+            </View>
+        </View>        
+            // {touched && ((error && <span className="text-auth-error">{error}</span>) || (warning && <span>{warning}</span>))}
     );
 };
 

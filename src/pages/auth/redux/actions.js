@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { hashHistory } from 'react-router';
-import { createHistory } from '../../../data/history/api_util';
+// import { hashHistory } from 'react-router';
+// import { createHistory } from '../../../data/history/api_util';
 
 const ROOT_URL = (process.env.NODE_ENV !== "production") ? 'http://localhost:3090' : 'https://trackyy.herokuapp.com';
 // const ROOT_URL = 'https://trackyy.herokuapp.com';
@@ -16,7 +16,7 @@ export function signinUser({ email, password }) {
         dispatch({ type: 'REQUEST_USER', id: currentUser });
 
         dispatch({ type: 'AUTH_USER', payload: response.data.user });
-        hashHistory.push('dashboard');
+        // hashHistory.push('dashboard');
       })
       .catch(() => {
         dispatch(authError("Bad Login Info"));
@@ -30,14 +30,12 @@ export function signupUser({ email, name, password }) {
       .then(response => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('currentUser', response.data.id);        
-        // dispatch({ type: 'CREATE_HISTORY', id: response.data.id});
-            // dispatch({ type: 'RECEIVE_HISTORY', history: res.data});
-        createHistory(response.data.id, 
-          res => {
-            dispatch({ type: 'AUTH_USER' });
-            hashHistory.push('dashboard');
-          }, err => console.log(err)
-        );
+        // createHistory(response.data.id, 
+        //   res => {
+        //     dispatch({ type: 'AUTH_USER' });
+        //     hashHistory.push('dashboard');
+        //   }, err => console.log(err)
+        // );
       })
       .catch(() => {
         dispatch(authError("Bad Signup Info"));

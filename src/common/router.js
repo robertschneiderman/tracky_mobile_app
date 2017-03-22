@@ -3,7 +3,7 @@ import { Scene, Router } from 'react-native-router-flux';
 import SigninScene from '../pages/auth/components/SigninScene';
 
 const RouterComponent = () => (
-    <Router>
+    <Router sceneStyle={{paddingTop: 100}}>
         <Scene key="signin" component={SigninScene} title="Sign In" />
     </Router>
 );
