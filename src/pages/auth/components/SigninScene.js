@@ -4,6 +4,8 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity, TextInput, Button } from 'react-native';
 import { validateSignin, renderField } from './helpers';
+import Input from '../../../common/components/Input';
+import PrimaryBtn from '../../../common/components/PrimaryBtn';
 
 
 class Signin extends Component {
@@ -21,18 +23,19 @@ class Signin extends Component {
         <View>
           <Field 
             name="email"
-            component={renderField}/>
+            placeholder="email"
+            component={Input}/>
         </View>      
 
         <View>
           <Field 
             name="password"
-            component={renderField} />          
+            placeholder="password"            
+            component={Input} />          
         </View>       
 
-        <TouchableOpacity onPress={handleSubmit(this.submit)}>
-          <Text>Submit</Text>
-        </TouchableOpacity>              
+        <PrimaryBtn text="Sign In" onPress={handleSubmit(this.submit)} />
+
       </View>
     );
   }

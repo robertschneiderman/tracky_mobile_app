@@ -1,14 +1,23 @@
 import React, {Component} from 'react';
-import { Button } from 'react-native';
+import { Button, TouchableOpacity } from 'react-native';
+import Centered from './Centered';
 
-
-const PrimaryButton = (text) => (
-    <Button style={buttonStyle} />
+const PrimaryBtn = ({text, onPress}) => (
+    <Centered>
+        <TouchableOpacity 
+            onPress={onPress} 
+            style={buttonStyle} >
+            <Button color='#fff' title={text}/>
+        </TouchableOpacity>
+    </Centered>
 );
 
 const buttonStyle = {
-    display: 'flex',
-    alignItems: 'space-between'
+  backgroundColor: '#35c1f7',
+  display: 'flex',
+  marginTop: 20,
+  alignItems: 'center',
+  width: '90%'
 };
 
-export default PrimaryButton;
+export default PrimaryBtn;

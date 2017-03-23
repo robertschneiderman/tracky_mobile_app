@@ -1,16 +1,23 @@
 import React, {Component} from 'react';
 
-import { TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 
-const Input = () => (
-    <TextInput style={inputStyle} />
+const Input = ({ input, label, placeholder, type, meta: { touched, error, warning } }) => (
+    <View style={viewStyle}>
+        <TextInput style={inputStyle} placeholder={placeholder} />
+    </View>
 );
+
+const viewStyle = {
+    borderBottomColor: '#ddd',
+    borderBottomWidth: .5,
+};
 
 const inputStyle = {
     height: 40,
-    borderColor: '#bbb',
-    borderWidth: 1,
+    borderBottomColor: '#bbb',
+    borderBottomWidth: 1,
     padding: 10,
     width: '90%',
     margin: 5
