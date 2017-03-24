@@ -3,9 +3,9 @@ import React, {Component} from 'react';
 import { View, TextInput } from 'react-native';
 
 
-const Input = ({ input, label, placeholder, type, meta: { touched, error, warning } }) => (
+const Input = ({ input: {onChange}, label, placeholder, type, meta: { touched, error, warning } }) => (
     <View style={viewStyle}>
-        <TextInput style={inputStyle} placeholder={placeholder} />
+        <TextInput style={inputStyle} placeholder={placeholder} onChangeText={onChange} />
     </View>
 );
 

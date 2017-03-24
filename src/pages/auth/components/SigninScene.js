@@ -11,9 +11,9 @@ import PrimaryBtn from '../../../common/components/PrimaryBtn';
 class Signin extends Component {
   // onChangetext={this.onEmailChange.bind(this)}
 
-  submit(values) {
-    console.log('submitting form', values);
-  }  
+  handleFormSubmit({ email, password }) {
+    this.props.signinUser({ email, password});
+  }
 
   render() {
     const { handleSubmit } = this.props;
@@ -23,8 +23,9 @@ class Signin extends Component {
         <View>
           <Field 
             name="email"
+            type="text"
             placeholder="email"
-            component={Input}/>
+            component={Input} />
         </View>      
 
         <View>
@@ -34,7 +35,7 @@ class Signin extends Component {
             component={Input} />          
         </View>       
 
-        <PrimaryBtn text="Sign In" onPress={handleSubmit(this.submit)} />
+        <PrimaryBtn text="Sign In" onPress={handleSubmit(this.handleFormSubmit.bind(this))} />
 
       </View>
     );

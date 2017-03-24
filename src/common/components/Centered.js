@@ -9,7 +9,6 @@ const Centered = ({children}) => (
 
 const viewStyle = {
     alignItems: 'center',
-    display: 'flex'
 };
 
 export default Centered;

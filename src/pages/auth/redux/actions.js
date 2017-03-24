@@ -1,22 +1,22 @@
 import axios from 'axios';
-// import { hashHistory } from 'react-router';
+import { setStorage } from '../../../common/helpers';
+import { Actions } from 'react-native-router-flux';
 // import { createHistory } from '../../../data/history/api_util';
 
-const ROOT_URL = (process.env.NODE_ENV !== "production") ? 'http://localhost:3090' : 'https://trackyy.herokuapp.com';
-// const ROOT_URL = 'https://trackyy.herokuapp.com';
+// const ROOT_URL = (process.env.NODE_ENV !== "production") ? 'http://localhost:3090' : 'https://trackyy.herokuapp.com';
+const ROOT_URL = 'http://localhost:3090';
 
 export function signinUser({ email, password }) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signin`, { email, password })
       .then(response => {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('currentUser', response.data.user.id);
+        setStorage('token', response.data.token);
+        setStorage('currentUser', response.data.user.id);
         
-        const currentUser = localStorage.getItem('currentUser');        
-        dispatch({ type: 'REQUEST_USER', id: currentUser });
-
+        dispatch({ type: 'REQUEST_USER', id: response.data.user.id });
         dispatch({ type: 'AUTH_USER', payload: response.data.user });
         // hashHistory.push('dashboard');
+        Actions.today();
       })
       .catch(() => {
         dispatch(authError("Bad Login Info"));
