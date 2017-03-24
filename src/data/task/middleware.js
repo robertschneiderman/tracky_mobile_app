@@ -3,7 +3,7 @@ import {userSchema, historySchema, taskSchema, goalSchema, timestampSchema} from
 import { updateTaskArr } from '../history/actions';
 import { mergeGoals } from '../goal/actions';
 import { objToArr } from '../../common/helpers/selectors';
-import {hashHistory} from 'react-router';
+// import {hashHistory} from 'react-router';
 
 // Task API Util
 import { fetchTasks,

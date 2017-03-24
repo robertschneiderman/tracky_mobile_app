@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setStorage } from '../../../common/helpers';
+import { setStorage } from '../../../common/helpers/storage';
 import { Actions } from 'react-native-router-flux';
 // import { createHistory } from '../../../data/history/api_util';
 
