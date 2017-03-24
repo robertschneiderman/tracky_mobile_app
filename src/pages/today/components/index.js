@@ -8,7 +8,7 @@ export class Today extends Component {
   render() {
     return (
       <Card>
-        
+        HI
       </Card>
     );
   }
