@@ -6,6 +6,7 @@ import { Text } from 'react-native';
 // import { Card } from '../../../common/components/';
 import Card from '../../../common/components/Card';
 import { objToArr } from '../../../common/helpers/selectors';
+import Tasks from './Tasks';
 
 class Today extends Component {
   render() {
@@ -13,9 +14,9 @@ class Today extends Component {
     return (
       <Card>
         <Text>Hi</Text>
-        {(tasks.length > 0) ? <Tasks {...this.props} key="lks-1" /> : undefined}
       </Card>
     );
+        // {(tasks.length > 0) ? <Tasks {...this.props} key="lks-1" /> : undefined}
   }
 }
 

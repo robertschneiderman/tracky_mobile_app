@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { dateToTime } from '../../../common/helpers/timeHelpers';
+import { dateToTime } from '../../../common/helpers/time';
 import { Text, View } from 'react-native';
 
 
