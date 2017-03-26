@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import moment from 'moment';
 import { dateToTime, padNumber, msToTime, msToLongerTime } from '../../../common/helpers/time';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
+
+import DownArrow from '../../../images/down_arrow';
 
 class TaskTime extends Component {
     constructor(props) {
@@ -90,9 +92,9 @@ class TaskTime extends Component {
         let { name, icon } = task;
         let { totalTime, timer, running } = this.state;
         
-                // <img src={`./static/images/task_icons/${icon}.svg`} className="img-task-icon" />
         return(
             <View className="c-task" onClick={this.handleClick.bind(this)} onMouseEnter={this.handleMouseEnter.bind(this)}>
+                <DownArrow />
                 <View className="c-task-text">
                     <View className="w-task-column-1">
                         <Text className="title-task-name">{name}</Text>
