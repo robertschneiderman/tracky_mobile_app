@@ -19,7 +19,6 @@ class Signin extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.authenticated !== this.props.authenticated) {
-      debugger;
       this.props.navigation.navigate('Tabs');
       // this.props.requestUser(getStorage('currentUser'));      
     }
