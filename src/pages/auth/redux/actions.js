@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setStorage, getUserToken } from '../../../common/helpers/storage';
+import { setStorage, getStorage, removeStorage } from '../../../common/helpers/storage';
 // import { Actions } from 'react-native-router-flux';
 // import { NavigationActions } from 'react-navigation';
 // import { createHistory } from '../../../data/history/api_util';
@@ -8,15 +8,9 @@ import { setStorage, getUserToken } from '../../../common/helpers/storage';
 const ROOT_URL = 'http://localhost:3090';
 
 function signIn(dispatch, user) {
+    // debugger;
     dispatch({ type: 'REQUEST_USER', id: user.id });
     dispatch({ type: 'AUTH_USER', payload: user });
-    // Actions.main();  
-
-    // const navigateAction = NavigationActions.navigate({
-      // routeName: 'Today',
-    // });    
-    // debugger;
-    // dispatch(navigateAction);
 }
 
 export function signinUser({ email, password }) {
@@ -36,11 +30,8 @@ export function signinUser({ email, password }) {
 
 export function signinUserByToken() {
   return function (dispatch) {
-    return getUserToken().then(token => {
-      console.log('token: ', token);
+    return getStorage('token').then(token => {
       if (token) {
-        token = token.slice(1);
-        token = token.slice(0, token.length-1);
         axios.post(`${ROOT_URL}/users/token/`, {token}).then(response => {
           signIn(dispatch, response.data);        
         }).catch(e => {
@@ -80,8 +71,8 @@ export function authError(error) {
 }
 
 export function signoutUser() {
-  localStorage.removeItem('token');
-  localStorage.removeItem('currentUser');
+  removeStorage('token');
+  removeStorage('currentUser');
   return function(dispatch) {
     dispatch({ type: "SIGNOUT" });
     dispatch({ type: 'UNAUTH_USER' });

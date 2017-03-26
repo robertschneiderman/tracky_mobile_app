@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { requestUser } from '../data/user/actions';
 import { axioss } from './config';
 import { View } from 'react-native';
-import { getStorage, storee } from './helpers/storage';
+import { getStorage } from './helpers/storage';
 
 // import Router from './router';
 import { Root } from './router';

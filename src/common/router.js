@@ -4,6 +4,7 @@ import { Icon } from 'react-native-elements';
 import Auth from '../pages/auth/components';
 import Signin from '../pages/auth/components/Signin';
 import Today from '../pages/today/components/';
+import More from '../pages/more/components/';
 // import Calendar from '../pages/calendar/components/';
 
 import { TabNavigator, StackNavigator } from 'react-navigation';
@@ -18,6 +19,22 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 //       },
 //     },
 //   },
+
+
+export const MoreStack = TabNavigator({
+  More: {
+    screen: More,
+    title: 'More',
+    navigationOptions: {
+      tabBar: {
+        label: 'More',
+      },
+    },
+  }
+
+});
+
+
 export const Tabs = TabNavigator({
   Today: {
     screen: Today,
@@ -28,9 +45,24 @@ export const Tabs = TabNavigator({
       },
     },
   },
+  More: {
+    screen: MoreStack,
+    title: 'More',
+    navigationOptions: {
+      tabBar: {
+        label: 'More',
+      },
+    },
+  },  
 });
 
 export const AuthStack = StackNavigator({
+  Auth: {
+    screen: Auth,
+    navigationOptions: {
+      title: 'Get Started',
+    },
+  },
   Signin: {
     screen: Signin,
     navigationOptions: {

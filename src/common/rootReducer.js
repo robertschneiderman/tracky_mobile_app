@@ -8,6 +8,7 @@ import todayReducer from '../pages/today/redux/reducer';
 import userReducer from '../data/user/reducer';
 import goalReducer from '../data/goal/reducer';
 import timestampReducer from '../data/timestamp/reducer';
+import moreReducer from '../pages/more/redux/reducer';
 // import calendarReducer from '../pages/calendar/redux/reducer';
 // import timestampEditorReducer from '../pages/timestampEditor/redux/reducer';
 
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   timestamp: timestampReducer,
   // calendar: calendarReducer,
   // timestampEditor: timestampEditorReducer,
+  more: moreReducer,
 });
 
 export default rootReducer;

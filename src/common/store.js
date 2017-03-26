@@ -9,6 +9,7 @@ import todayMiddleware from '../pages/today/redux/middleware';
 import userMiddleware from '../data/user/middleware';
 import goalMiddleware from '../data/goal/middleware';
 import timestampMiddleware from '../data/timestamp/middleware';
+import moreMiddleware from '../pages/more/redux/middleware';
 // import calendarMiddleware from '../pages/calendar/redux/middleware';
 // import timestampEditorMiddleware from '../pages/timestampEditor/redux/middleware';
 
@@ -26,6 +27,7 @@ const createStoreWithMiddleware = applyMiddleware(
   ,timestampMiddleware
   // ,calendarMiddleware
   // ,timestampEditorMiddleware)(createStore);
+  ,moreMiddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducers);

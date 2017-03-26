@@ -1,30 +1,30 @@
-import store from 'react-native-simple-store';
+// import store from 'react-native-simple-store';
 
-export const setStorage = (key, value) => {
-    store.save(key, value);
-};
+// export const setStorage = (key, value) => {
+//     store.save(key, value);
+// };
 
-export const getStorage = (key) => {
-    store.get(key);
-};
+// export const getStorage = (key) => {
+//     store.get(key);
+// };
 
 'use strict';
 import { AsyncStorage } from 'react-native';
 // import { API_TOKEN } from './../constants/config';
 
-export const setUserToken = (token) => {
-  forgetItem('token');
-  AsyncStorage.setItem('token', token, (err)=> {
+export const setStorage = (key, val) => {
+  removeStorage(key);
+  AsyncStorage.setItem(key, val.toString(), (err)=> {
     if (err) {
       throw err;
     }
   });
 };
 
-export const getUserToken = () => {
-  return AsyncStorage.getItem('token');
+export const getStorage = key => {
+  return AsyncStorage.getItem(key);
 };
 
-export const forgetItem = (key)=> {
+export const removeStorage = key => {
   AsyncStorage.removeItem(key);
 };
