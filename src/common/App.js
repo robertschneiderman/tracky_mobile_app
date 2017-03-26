@@ -5,11 +5,9 @@ import { requestUser } from '../data/user/actions';
 import { axioss } from './config';
 import { View } from 'react-native';
 import { getStorage, storee } from './helpers/storage';
-import { Actions } from 'react-native-router-flux';
-import { signinUserByToken } from '../pages/auth/redux/actions';
 
 // import Router from './router';
-import { Tabs } from './router';
+import { Root } from './router';
 
 class App extends Component {
   constructor(props) {
@@ -32,13 +30,6 @@ class App extends Component {
     // });
   }
 
-  componentWillReceiveProps(nextProps) {
-    // if (nextProps.authenticated !== this.props.authenticated) {
-
-      // this.props.requestUser(getStorage('currentUser'));      
-    // }
-  }
-
   handleClick() {
     // axioss.post(`cron`);
   }
@@ -49,7 +40,7 @@ class App extends Component {
         // {this.props.children}
         // debugger;
     return(
-      <Tabs />
+      <Root />
     );
   }
 }
@@ -59,8 +50,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestUser: payload => dispatch(requestUser(payload)),
-  signinUserByToken: payload => dispatch(signinUserByToken(payload))
+  requestUser: payload => dispatch(requestUser(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

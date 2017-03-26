@@ -6,10 +6,24 @@ import { StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity, Te
 import { validateSignin, renderField } from './helpers';
 import Input from '../../../common/components/Input';
 import PrimaryBtn from '../../../common/components/PrimaryBtn';
+import { signinUserByToken } from '../redux/actions';
+
 
 
 class Signin extends Component {
   // onChangetext={this.onEmailChange.bind(this)}
+
+  componentDidMount() {
+    this.props.signinUserByToken();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.authenticated !== this.props.authenticated) {
+      debugger;
+      this.props.navigation.navigate('Tabs');
+      // this.props.requestUser(getStorage('currentUser'));      
+    }
+  }  
 
   handleFormSubmit({ email, password }) {
     this.props.signinUser({ email, password});
@@ -44,12 +58,16 @@ class Signin extends Component {
 }
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.error };
+  return { 
+    authenticated: state.auth.authenticated,
+    errorMessage: state.auth.error 
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    signinUser: payload => dispatch(actions.signinUser(payload))
+    signinUser: payload => dispatch(actions.signinUser(payload)),
+    signinUserByToken: payload => dispatch(actions.signinUserByToken(payload))
   };
 }
 

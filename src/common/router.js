@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import { Icon } from 'react-native-elements';
-import SigninScene from '../pages/auth/components/SigninScene';
+import Signin from '../pages/auth/components/Signin';
 import Today from '../pages/today/components/';
 // import Calendar from '../pages/calendar/components/';
 
@@ -20,6 +20,7 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 export const Tabs = TabNavigator({
   Today: {
     screen: Today,
+    title: 'today',
     navigationOptions: {
       tabBar: {
         label: 'Today',
@@ -27,13 +28,29 @@ export const Tabs = TabNavigator({
     },
   },
 });
+
+
+export const Root = StackNavigator({
+  Signin: {
+    screen: Signin,
+  },
+  Tabs: {
+    screen: Tabs,
+  },
+}, {
+  mode: 'modal',
+  headerMode: 'none',
+});
+
+
+
         // icon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
 
 
 /*const RouterComponent = () => (
     <Router sceneStyle={{paddingTop: 100}}>
         <Scene key="auth">
-            <Scene key="signin" component={SigninScene} title="Sign In" />
+            <Scene key="signin" component={Signin} title="Sign In" />
         </Scene>
 
         <Scene key="main">

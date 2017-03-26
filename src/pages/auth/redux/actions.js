@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { setStorage, getUserToken } from '../../../common/helpers/storage';
-import { Actions } from 'react-native-router-flux';
+// import { Actions } from 'react-native-router-flux';
+// import { NavigationActions } from 'react-navigation';
 // import { createHistory } from '../../../data/history/api_util';
 
 // const ROOT_URL = (process.env.NODE_ENV !== "production") ? 'http://localhost:3090' : 'https://trackyy.herokuapp.com';
@@ -9,7 +10,13 @@ const ROOT_URL = 'http://localhost:3090';
 function signIn(dispatch, user) {
     dispatch({ type: 'REQUEST_USER', id: user.id });
     dispatch({ type: 'AUTH_USER', payload: user });
-    Actions.main();  
+    // Actions.main();  
+
+    // const navigateAction = NavigationActions.navigate({
+      // routeName: 'Today',
+    // });    
+    // debugger;
+    // dispatch(navigateAction);
 }
 
 export function signinUser({ email, password }) {
@@ -31,7 +38,6 @@ export function signinUserByToken() {
   return function (dispatch) {
     return getUserToken().then(token => {
       console.log('token: ', token);
-
       if (token) {
         token = token.slice(1);
         token = token.slice(0, token.length-1);
