@@ -8,7 +8,6 @@ import { setStorage, getStorage, removeStorage } from '../../../common/helpers/s
 const ROOT_URL = 'http://localhost:3090';
 
 function signIn(dispatch, user) {
-    // debugger;
     dispatch({ type: 'REQUEST_USER', id: user.id });
     dispatch({ type: 'AUTH_USER', payload: user });
 }
@@ -20,7 +19,7 @@ export function signinUser({ email, password }) {
         setStorage('token', response.data.token);
         setStorage('currentUser', response.data.user.id);
         
-        signIn(dispatch, response.data);
+        signIn(dispatch, response.data.user);
       })
       .catch(() => {
         dispatch(authError("Bad Login Info"));
@@ -49,12 +48,6 @@ export function signupUser({ email, name, password }) {
       .then(response => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('currentUser', response.data.id);        
-        // createHistory(response.data.id, 
-        //   res => {
-        //     dispatch({ type: 'AUTH_USER' });
-        //     hashHistory.push('dashboard');
-        //   }, err => console.log(err)
-        // );
       })
       .catch(() => {
         dispatch(authError("Bad Signup Info"));

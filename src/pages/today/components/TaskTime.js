@@ -78,7 +78,7 @@ class TaskTime extends Component {
         let { task } = this.props;   
         let lastTimestamp = this.getLastTimestamp();
         return (
-            <Text className="text-timestamp-display">
+            <Text>
                 {(lastTimestamp && lastTimestamp.start) ? `${dateToTime(lastTimestamp.start)} - ` : '' }
                 {(lastTimestamp && lastTimestamp.end) ? dateToTime(lastTimestamp.end) : '' }
             </Text>
@@ -90,9 +90,9 @@ class TaskTime extends Component {
         let { name, icon } = task;
         let { totalTime, timer, running } = this.state;
         
+                // <img src={`./static/images/task_icons/${icon}.svg`} className="img-task-icon" />
         return(
             <View className="c-task" onClick={this.handleClick.bind(this)} onMouseEnter={this.handleMouseEnter.bind(this)}>
-                <img src={`./static/images/task_icons/${icon}.svg`} className="img-task-icon" />
                 <View className="c-task-text">
                     <View className="w-task-column-1">
                         <Text className="title-task-name">{name}</Text>
@@ -103,7 +103,7 @@ class TaskTime extends Component {
                         <Text className="text-total-time">{msToTime(totalTime)}</Text>
                     </View>
                 </View>
-                {(running) ? <View className="shape-loader loader"></View> : ''}
+                {(running) ? <View className="shape-loader loader"></View> : undefined}
             </View>
         );
     }
