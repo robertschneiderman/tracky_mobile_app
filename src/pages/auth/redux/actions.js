@@ -7,7 +7,6 @@ import { Actions } from 'react-native-router-flux';
 const ROOT_URL = 'http://localhost:3090';
 
 function signIn(dispatch, user) {
-  debugger;
     dispatch({ type: 'REQUEST_USER', id: user.id });
     dispatch({ type: 'AUTH_USER', payload: user });
     Actions.main();  

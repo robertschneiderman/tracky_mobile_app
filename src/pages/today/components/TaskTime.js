@@ -23,10 +23,9 @@ class TaskTime extends Component {
     getTotalTime(timestamps) {
         let ts = timestamps[0];
         let totalMilliSeconds = timestamps.reduce((accum, tss) => {
-        let milliSeconds = moment.duration(moment(tss.end).unix() - moment(tss.start).unix(), 'seconds').seconds() * 1000;
+            let milliSeconds = moment.duration(moment(tss.end).unix() - moment(tss.start).unix(), 'seconds').seconds() * 1000;
             return accum + milliSeconds;
         }, 0);
-        
         return totalMilliSeconds;
     }
 

@@ -8,7 +8,8 @@ import { getStorage, storee } from './helpers/storage';
 import { Actions } from 'react-native-router-flux';
 import { signinUserByToken } from '../pages/auth/redux/actions';
 
-import Router from './router';
+// import Router from './router';
+import { Tabs } from './router';
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.signinUserByToken();
+    // this.props.signinUserByToken();
       
     //   dis
     // let currentUser = getStorage('currentUser');
@@ -48,7 +49,7 @@ class App extends Component {
         // {this.props.children}
         // debugger;
     return(
-      <Router />
+      <Tabs />
     );
   }
 }

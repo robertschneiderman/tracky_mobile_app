@@ -14,9 +14,9 @@ class Today extends Component {
     return (
       <Card>
         <Text>Hi</Text>
+        {(tasks.length > 0) ? <Tasks {...this.props} key="lks-1" /> : undefined}
       </Card>
     );
-        // {(tasks.length > 0) ? <Tasks {...this.props} key="lks-1" /> : undefined}
   }
 }
 
